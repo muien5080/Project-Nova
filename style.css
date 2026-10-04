@@ -1,0 +1,1494 @@
+/* ==========================================================================
+   Project Nova - Modern Clean White Theme & Enhanced UI
+   ========================================================================== */
+
+:root {
+	--font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	--font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+	--bg-body: #f8fafc;
+	--bg-surface: #ffffff;
+	--border-color: #e2e8f0;
+	--border-hover: #cbd5e1;
+	--text-primary: #0f172a;
+	--text-secondary: #475569;
+	--text-muted: #64748b;
+	--brand-primary: #2563eb;
+	--brand-hover: #1d4ed8;
+	--brand-light: #eff6ff;
+	--brand-glow: rgba(37, 99, 235, 0.25);
+	--success: #059669;
+	--success-bg: #ecfdf5;
+	--danger: #ef4444;
+	--danger-bg: #fef2f2;
+}
+
+html, body {
+	background-color: var(--bg-body) !important;
+	color: var(--text-primary) !important;
+	font-family: var(--font-sans) !important;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   CRITICAL: Strict Visibility Control for Tabs, Hidden Rows & Panes
+   ========================================================================== */
+
+.hidden,
+.hide,
+tr.hidden,
+tr.hide,
+li.hidden,
+li.hide,
+div.hidden,
+div.hide,
+span.hidden,
+span.hide,
+[style*="display: none"],
+[style*="display:none"] {
+	display: none !important;
+}
+
+/* ==========================================================================
+   Universal 2-Column Sidebar + Detail Layout Architecture
+   ========================================================================== */
+
+/* Top-level major tabs visibility & side-by-side grid layout */
+.tab-content > .tab-pane {
+	display: none !important;
+}
+
+.tab-with-sidebar,
+#tabContent > .tab-pane.active,
+#resources.active,
+#research.active,
+#solarSystem.active,
+#wonder.active,
+#solCenterPage.active,
+#more.active,
+#stargazeTab_pane.active,
+#interstellarTab_pane.active {
+	display: grid !important;
+	grid-template-columns: 240px minmax(0, 1fr) !important;
+	gap: 18px !important;
+	align-items: start !important;
+	width: 100% !important;
+	max-width: 100% !important;
+	box-sizing: border-box !important;
+	float: none !important;
+	clear: both !important;
+}
+
+/* Sidebar Column Container */
+.tab-sidebar,
+.side-nav-container,
+#resources > .container.col-xs-1,
+#tabContent > .tab-pane > .side-nav-container,
+#tabContent > .tab-pane > .container.col-xs-1,
+#tabContent > .tab-pane > .container:first-child,
+#stargazeTab_pane > .container:first-child,
+#interstellarTab_pane > .container:first-child {
+	display: block !important;
+	width: 100% !important;
+	max-width: 240px !important;
+	min-width: 0 !important;
+	float: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+}
+
+/* Detail Panel Container */
+.tab-detail-panel,
+.side-tab-content-parent,
+#resourceTabParent,
+#researchTabParent,
+#solarTabParent,
+#wonderTabParent,
+#solCenterTabParent,
+#moreTabParent,
+#stargazeTab_content,
+#interstellarTab_content {
+	display: block !important;
+	min-width: 0 !important;
+	width: 100% !important;
+	max-width: 100% !important;
+	float: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	overflow-x: hidden !important;
+}
+
+/* Detail Sub-Panes Visibility */
+.tab-detail-panel > .tab-pane,
+.side-tab-content-parent > .tab-pane,
+#resourceTabParent > .tab-pane,
+#researchTabParent > .tab-pane,
+#solarTabParent > .tab-pane,
+#wonderTabParent > .tab-pane,
+#solCenterTabParent > .tab-pane,
+#moreTabParent > .tab-pane,
+#stargazeTab_content > .tab-pane,
+#interstellarTab_content > .tab-pane {
+	display: none !important;
+	width: 100% !important;
+	max-width: 100% !important;
+	float: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+}
+
+.tab-detail-panel > .tab-pane.active,
+.side-tab-content-parent > .tab-pane.active,
+#resourceTabParent > .tab-pane.active,
+#researchTabParent > .tab-pane.active,
+#solarTabParent > .tab-pane.active,
+#wonderTabParent > .tab-pane.active,
+#solCenterTabParent > .tab-pane.active,
+#moreTabParent > .tab-pane.active,
+#stargazeTab_content > .tab-pane.active,
+#interstellarTab_content > .tab-pane.active {
+	display: block !important;
+}
+
+/* Detail Panel Interior Card */
+.tab-detail-panel > .tab-pane > .container,
+.side-tab-content-parent > .tab-pane > .container,
+#resourceTabParent > .tab-pane > .container,
+#researchTabParent > .tab-pane > .container,
+#solarTabParent > .tab-pane > .container,
+#wonderTabParent > .tab-pane > .container,
+#solCenterTabParent > .tab-pane > .container,
+#moreTabParent > .tab-pane > .container,
+#stargazeTab_content > .tab-pane > .container,
+#interstellarTab_content > .tab-pane > .container {
+	width: 100% !important;
+	max-width: 1000px !important;
+	margin: 0 !important;
+	padding: 24px 28px !important;
+	background: #ffffff !important;
+	border: 1px solid var(--border-color) !important;
+	border-radius: 16px !important;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+	box-sizing: border-box !important;
+	float: none !important;
+}
+
+.pointer:hover{
+	cursor: pointer;
+}
+.default, .disabled{
+	cursor: default !important;
+}
+.no-select{
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+.red{
+	color: var(--danger) !important;
+	font-weight: 600;
+}
+.bold{
+	font-weight: 700;
+	text-decoration: none;
+	color: var(--danger);
+}
+.green{
+	color: var(--success) !important;
+	font-weight: 600;
+}
+
+.theader{
+	font-size: 18px;
+	font-weight: 700;
+	color: var(--text-primary);
+}
+
+.achievementTD{
+	padding: 0px;
+	background-color: white !important;
+}
+
+/* ==========================================================================
+   Loading Screen (Clean White Theme)
+   ========================================================================== */
+
+#loadScreen {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: radial-gradient(circle at 50% 40%, #ffffff 0%, #f1f5f9 100%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	z-index: 99999;
+	color: var(--text-primary);
+	font-family: var(--font-sans);
+	overflow: hidden;
+	transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.5s;
+}
+
+#loadScreen.fade-out {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.nova-loader-container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	max-width: 520px;
+	width: 90%;
+	z-index: 2;
+	padding: 40px 30px;
+	background: rgba(255, 255, 255, 0.85);
+	backdrop-filter: blur(12px);
+	border: 1px solid var(--border-color);
+	border-radius: 24px;
+	box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08), 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.nova-loader-icon-wrapper {
+	position: relative;
+	width: 84px;
+	height: 84px;
+	margin-bottom: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.nova-loader-pulse {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background: var(--brand-light);
+	animation: pulseGlow 2s ease-in-out infinite alternate;
+}
+
+.nova-spinner-ring {
+	position: absolute;
+	width: 78px;
+	height: 78px;
+	border-radius: 50%;
+	border: 3px solid #e2e8f0;
+	border-top-color: var(--brand-primary);
+	border-right-color: #60a5fa;
+	animation: spinRing 1.1s cubic-bezier(0.55, 0.15, 0.45, 0.85) infinite;
+}
+
+.nova-loader-center {
+	position: relative;
+	width: 52px;
+	height: 52px;
+	border-radius: 16px;
+	background: #ffffff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+	border: 1px solid #e2e8f0;
+}
+
+.nova-loader-logo {
+	width: 32px;
+	height: auto;
+}
+
+@keyframes spinRing {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+@keyframes pulseGlow {
+	0% { transform: scale(0.95); opacity: 0.5; }
+	100% { transform: scale(1.15); opacity: 0.9; }
+}
+
+.nova-title {
+	font-size: 28px;
+	font-weight: 800;
+	letter-spacing: -0.5px;
+	color: #0f172a;
+	margin: 0 0 4px 0;
+}
+
+.nova-subtitle {
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+	color: #64748b;
+	margin-bottom: 24px;
+}
+
+.nova-progress-track {
+	width: 240px;
+	height: 6px;
+	background: #e2e8f0;
+	border-radius: 9999px;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 18px;
+}
+
+.nova-progress-fill {
+	position: absolute;
+	top: 0;
+	left: -50%;
+	width: 50%;
+	height: 100%;
+	background: linear-gradient(90deg, #3b82f6, #2563eb, #1d4ed8);
+	border-radius: 9999px;
+	animation: scanProgress 1.4s ease-in-out infinite;
+}
+
+@keyframes scanProgress {
+	0% { left: -50%; width: 40%; }
+	50% { width: 70%; }
+	100% { left: 110%; width: 40%; }
+}
+
+#splashText {
+	font-size: 13px;
+	font-weight: 600;
+	color: #64748b;
+	letter-spacing: 0.2px;
+	min-height: 20px;
+}
+
+/* ==========================================================================
+   Header Navbar & Sound Toggle
+   ========================================================================== */
+
+#game {
+	padding-top: 10px;
+	padding-bottom: 40px;
+}
+
+#game .navbar.navbar-default {
+	background: #ffffff !important;
+	border: 1px solid var(--border-color) !important;
+	border-radius: 16px !important;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 6px 16px -4px rgba(0, 0, 0, 0.02) !important;
+}
+
+#game .navbar-brand {
+	height: auto;
+	padding: 14px 18px;
+	display: inline-flex;
+	align-items: center;
+}
+
+#game .navbar-brand.page-title {
+	font-size: 20px;
+	font-weight: 800;
+	letter-spacing: -0.3px;
+	color: #0f172a !important;
+}
+
+#companyName {
+	color: #0f172a !important;
+	font-weight: 800;
+}
+
+#autoSaveTimer {
+	background: #f1f5f9;
+	color: #475569 !important;
+	font-weight: 600;
+	font-size: 13px;
+	padding: 6px 12px;
+	border-radius: 8px;
+	border: 1px solid #e2e8f0;
+	display: inline-block;
+}
+
+#energyLow {
+	background: #fee2e2 !important;
+	color: #b91c1c !important;
+	font-weight: 700 !important;
+	padding: 5px 12px !important;
+	border-radius: 9999px !important;
+	font-size: 12px !important;
+	border: 1px solid #fecaca;
+}
+
+/* Sound Toggle Button */
+.btn-sound-toggle {
+	background: #ffffff !important;
+	border: 1.5px solid var(--border-color) !important;
+	color: #334155 !important;
+	border-radius: 8px !important;
+	padding: 5px 12px !important;
+	font-size: 12px !important;
+	font-weight: 700 !important;
+	display: inline-flex !important;
+	align-items: center !important;
+	gap: 5px !important;
+	cursor: pointer !important;
+	transition: all 0.15s ease !important;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+}
+
+.btn-sound-toggle:hover {
+	background: #f8fafc !important;
+	border-color: var(--border-hover) !important;
+	color: #0f172a !important;
+	transform: translateY(-1px);
+}
+
+.btn-sound-toggle.sound-on {
+	border-color: #93c5fd !important;
+	background: #eff6ff !important;
+	color: #1d4ed8 !important;
+}
+
+.btn-sound-toggle.sound-off {
+	border-color: #e2e8f0 !important;
+	background: #f8fafc !important;
+	color: #94a3b8 !important;
+}
+
+/* ==========================================================================
+   Nav Tabs - Keeps Help/FAQ and More on the Right Where They Were
+   ========================================================================== */
+
+#tabList {
+	background: #ffffff;
+	border: 1px solid var(--border-color);
+	border-radius: 14px;
+	padding: 6px 8px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+	margin-bottom: 24px;
+	display: block !important;
+}
+
+#tabList::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+#tabList > li {
+	float: left;
+	margin: 2px 3px;
+	list-style: none;
+}
+
+/* Keep Help/FAQ and More TAB pinned to the right side where they were */
+#tabList > li.pull-right {
+	float: right !important;
+}
+
+#tabList > li > a {
+	border: none !important;
+	border-radius: 10px !important;
+	font-weight: 700;
+	font-size: 14px;
+	color: #64748b !important;
+	padding: 9px 16px !important;
+	transition: all 0.15s ease-in-out;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	background: transparent;
+	text-decoration: none !important;
+}
+
+#tabList > li > a:hover {
+	background: #f1f5f9 !important;
+	color: #0f172a !important;
+}
+
+#tabList > li.active > a,
+#tabList > li.active > a:hover,
+#tabList > li.active > a:focus {
+	background: var(--brand-primary) !important;
+	color: #ffffff !important;
+	box-shadow: 0 4px 12px var(--brand-glow) !important;
+}
+
+/* Attention Pulse for Exclamation Badges */
+.glyphicon-exclamation-sign {
+	color: #ef4444;
+	font-size: 13px;
+	animation: badgeBounce 1.8s ease-in-out infinite;
+}
+
+@keyframes badgeBounce {
+	0%, 100% { transform: translateY(0); }
+	50% { transform: translateY(-3px) scale(1.1); }
+}
+
+/* ==========================================================================
+   Resources Layout - Perfectly Box-Aligned Grid & Tables
+   ========================================================================== */
+
+#resources::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Left Resource Sidebar */
+#resources > .container.col-xs-1 {
+	width: 410px !important;
+	max-width: 410px !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	float: left !important;
+}
+
+#resourceNavParent {
+	width: 100% !important;
+	max-width: 410px !important;
+	border-collapse: separate !important;
+	border-spacing: 0 4px !important;
+	background: transparent !important;
+	table-layout: fixed !important;
+	margin: 0 !important;
+}
+
+#resourceNavParent tr.sideTab:not(.hidden),
+#resourceNavParent tr.earth:not(.hidden),
+#resourceNavParent tr.innerPlanet:not(.hidden),
+#resourceNavParent tr.outerPlanet:not(.hidden) {
+	background: #ffffff;
+	cursor: pointer;
+	height: 52px;
+	transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+#resourceNavParent tr.sideTab:not(.hidden):hover,
+#resourceNavParent tr.earth:not(.hidden):hover,
+#resourceNavParent tr.innerPlanet:not(.hidden):hover,
+#resourceNavParent tr.outerPlanet:not(.hidden):hover {
+	background: #f8fafc;
+}
+
+#resourceNavParent tr.sideTab.info,
+#resourceNavParent tr.earth.info,
+#resourceNavParent tr.innerPlanet.info,
+#resourceNavParent tr.outerPlanet.info {
+	background: #eff6ff !important;
+}
+
+#resourceNavParent td {
+	vertical-align: middle !important;
+	border: none !important;
+	border-top: 1px solid var(--border-color) !important;
+	border-bottom: 1px solid var(--border-color) !important;
+	padding: 8px 8px !important;
+}
+
+#resourceNavParent td:first-child {
+	border-left: 1px solid var(--border-color) !important;
+	border-top-left-radius: 9px !important;
+	border-bottom-left-radius: 9px !important;
+	width: 42px !important;
+	text-align: center !important;
+	padding-left: 8px !important;
+}
+
+#resourceNavParent td:nth-child(2) {
+	font-weight: 700 !important;
+	color: var(--text-primary) !important;
+	font-size: 14px !important;
+	text-align: left !important;
+	width: 85px !important;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+#resourceNavParent td:nth-child(3) {
+	width: 125px !important;
+	text-align: center !important;
+	white-space: nowrap !important;
+	padding: 6px 4px !important;
+}
+
+#resourceNavParent td:last-child {
+	border-right: 1px solid var(--border-color) !important;
+	border-top-right-radius: 9px !important;
+	border-bottom-right-radius: 9px !important;
+	width: 158px !important;
+	text-align: right !important;
+	padding-right: 14px !important;
+	padding-left: 4px !important;
+	white-space: nowrap !important;
+	font-family: var(--font-mono) !important;
+	font-size: 12.5px !important;
+	font-weight: 600 !important;
+	color: #334155 !important;
+	font-variant-numeric: tabular-nums !important;
+}
+
+#resourceNavParent img {
+	border-radius: 7px;
+	background: #f8fafc;
+	padding: 2px;
+	border: 1px solid #e2e8f0;
+}
+
+/* Gain Rate Pill (/Sec) - Unified pill badge preventing text collision */
+#resourceNavParent td:nth-child(3) > span,
+#research td:nth-child(3) > span {
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	background: var(--success-bg) !important;
+	border: 1px solid #a7f3d0 !important;
+	color: #047857 !important;
+	border-radius: 9999px !important;
+	padding: 2.5px 8px !important;
+	font-family: var(--font-mono) !important;
+	font-size: 11.5px !important;
+	font-weight: 700 !important;
+	white-space: nowrap !important;
+	letter-spacing: -0.2px;
+}
+
+#resourceNavParent span[id$="ps"],
+#research span[id$="ps"] {
+	font-family: inherit !important;
+	font-size: inherit !important;
+	font-weight: 800 !important;
+	color: inherit !important;
+	background: transparent !important;
+	padding: 0 !important;
+	border: none !important;
+	margin-right: 3px !important;
+	display: inline !important;
+}
+
+/* Collapse Category Headers (e.g. Earth Resources) */
+#collapseEarth, .collapseEarth {
+	background: #f1f5f9 !important;
+}
+
+#collapseEarth td, .collapseEarth td {
+	border: 1px solid var(--border-color) !important;
+	border-radius: 8px !important;
+	padding: 8px 12px !important;
+	font-size: 12px !important;
+	font-weight: 800 !important;
+	text-transform: uppercase !important;
+	letter-spacing: 0.6px !important;
+	color: #475569 !important;
+}
+
+/* Main Tab Panes - 2-Column Side-by-Side Flex Layout (Sidebar Left, Content Right) */
+#tabContent > .tab-pane.active {
+	display: flex !important;
+	flex-direction: row !important;
+	align-items: flex-start !important;
+	justify-content: flex-start !important;
+	gap: 24px !important;
+	width: 100% !important;
+	float: none !important;
+}
+
+/* Right-Side Action Panels (Resource, Research, Solar, Wonder, Sol Center, More) */
+#resourceTabParent,
+.side-tab-content-parent,
+#researchTabParent,
+#solarTabParent,
+#wonderTabParent,
+#solCenterTabParent,
+#moreTabParent {
+	flex: 1 1 0% !important;
+	min-width: 0 !important;
+	width: auto !important;
+	max-width: none !important;
+	float: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+/* ==========================================================================
+   Resource Page Live Headline & Stats (2x2 Aligned Grid)
+   ========================================================================== */
+
+.resource-live-header {
+	margin-bottom: 20px;
+	padding: 14px 18px;
+	background: #ffffff;
+	border: 1px solid var(--border-color);
+	border-radius: 12px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.resource-title-row {
+	display: flex !important;
+	justify-content: space-between !important;
+	align-items: center !important;
+	margin-bottom: 10px !important;
+	width: 100% !important;
+}
+
+.resource-page-heading {
+	margin: 0 !important;
+	padding: 0 !important;
+	border-bottom: none !important;
+	font-size: 24px !important;
+	font-weight: 800 !important;
+	color: #0f172a !important;
+	letter-spacing: -0.4px;
+	text-align: left !important;
+}
+
+.resource-exact-badge {
+	font-family: var(--font-mono) !important;
+	font-size: 19px !important;
+	font-weight: 800 !important;
+	color: var(--brand-primary) !important;
+	background: #eff6ff !important;
+	border: 1.5px solid #bfdbfe !important;
+	border-radius: 9px !important;
+	padding: 4px 14px !important;
+	letter-spacing: -0.3px;
+	font-variant-numeric: tabular-nums !important;
+	box-shadow: 0 1px 2px rgba(37, 99, 235, 0.06);
+	text-align: right !important;
+	margin-left: auto !important;
+}
+
+.resource-stats-row {
+	display: flex !important;
+	justify-content: space-between !important;
+	align-items: center !important;
+	width: 100% !important;
+}
+
+.resource-stat-chip {
+	display: inline-flex !important;
+	align-items: center !important;
+	gap: 6px !important;
+	font-family: var(--font-sans) !important;
+	font-size: 13px !important;
+	font-weight: 600 !important;
+	padding: 4px 12px !important;
+	border-radius: 8px !important;
+}
+
+.resource-stat-chip.gain-chip {
+	background: #ecfdf5 !important;
+	border: 1px solid #a7f3d0 !important;
+	color: #047857 !important;
+	text-align: left !important;
+}
+
+.resource-stat-chip.gain-chip .chip-label {
+	color: #047857;
+	font-weight: 600;
+}
+
+.resource-stat-chip.gain-chip .chip-value {
+	font-family: var(--font-mono);
+	font-weight: 800;
+	color: #065f46;
+}
+
+.resource-stat-chip.capacity-chip {
+	background: #f8fafc !important;
+	border: 1px solid #e2e8f0 !important;
+	color: #475569 !important;
+	margin-left: auto !important;
+	text-align: right !important;
+}
+
+.resource-stat-chip.capacity-chip .chip-label {
+	color: #64748b;
+	font-weight: 600;
+}
+
+.resource-stat-chip.capacity-chip .chip-value {
+	font-family: var(--font-mono);
+	font-weight: 700;
+	color: #0f172a;
+}
+
+.storage-percent-line {
+	display: inline-block;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	color: #475569;
+	font-size: 13px;
+}
+
+.storage-percent-line span {
+	font-family: var(--font-mono);
+	color: #2563eb;
+	font-weight: 700;
+}
+
+#resourceTabParent > .tab-pane,
+.side-tab-content-parent > .tab-pane,
+#researchTabParent > .tab-pane,
+#solarTabParent > .tab-pane,
+#wonderTabParent > .tab-pane,
+#solCenterTabParent > .tab-pane,
+#moreTabParent > .tab-pane {
+	width: 100% !important;
+	max-width: 100% !important;
+	float: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+#resourceTabParent > .tab-pane > .container,
+.side-tab-content-parent > .tab-pane > .container,
+#researchTabParent > .tab-pane > .container,
+#solarTabParent > .tab-pane > .container,
+#wonderTabParent > .tab-pane > .container,
+#solCenterTabParent > .tab-pane > .container,
+#moreTabParent > .tab-pane > .container {
+	width: 100% !important;
+	max-width: 100% !important;
+	margin: 0 !important;
+	padding: 24px 28px !important;
+	background: #ffffff !important;
+	border: 1px solid var(--border-color) !important;
+	border-radius: 16px !important;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+	box-sizing: border-box !important;
+}
+
+/* Action & Upgrade Cards Inside Panels */
+#resourceTabParent table.table,
+.side-tab-content-parent table.table,
+#researchTabParent table.table,
+#solarTabParent table.table,
+#wonderTabParent table.table,
+#solCenterTabParent table.table,
+#moreTabParent table.table {
+	width: 100% !important;
+	max-width: 100% !important;
+	margin: 0 !important;
+	border-collapse: separate !important;
+	border-spacing: 0 12px !important;
+}
+
+#resourceTabParent table.table > tbody > tr:not(.hidden),
+.side-tab-content-parent table.table > tbody > tr:not(.hidden) {
+	background: transparent;
+}
+
+#resourceTabParent table.table > tbody > tr:not(.hidden) > td,
+.side-tab-content-parent table.table > tbody > tr:not(.hidden) > td {
+	display: table-cell;
+	width: 100%;
+	background: #ffffff;
+	border: 1px solid var(--border-color);
+	border-radius: 12px;
+	padding: 18px 22px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+	box-sizing: border-box;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+#resourceTabParent table.table > tbody > tr:not(.hidden):hover > td,
+.side-tab-content-parent table.table > tbody > tr:not(.hidden):hover > td {
+	border-color: var(--border-hover);
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+/* Sidebar Nav Containers (Desktop) - Left Column Matching Resource Tab */
+.side-nav-container,
+#tabContent > .tab-pane > .side-nav-container,
+#tabContent > .tab-pane > .container.col-xs-1,
+#resources > .container.col-xs-1,
+#research > .container,
+#solarSystem > .container,
+#wonder > .container,
+#solCenterPage > .container,
+#more > .container {
+	flex: 0 0 380px !important;
+	width: 380px !important;
+	max-width: 380px !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	float: none !important;
+}
+
+/* Sidebar Nav Tables (All Tabs Matching Resource Tab Structure & Design) */
+.side-nav-table,
+#resourceNavParent,
+#researchNavParent,
+#solarNavParent,
+#wonderNavParent,
+#solCenterNavParent,
+#moreNavParent {
+	width: 100% !important;
+	max-width: 410px !important;
+	border-collapse: separate !important;
+	border-spacing: 0 4px !important;
+	background: transparent !important;
+	table-layout: fixed !important;
+	margin: 0 !important;
+}
+
+.tab-sidebar-table,
+.side-nav-table,
+#resourceNavParent,
+#researchNavParent,
+#solarNavParent,
+#wonderNavParent,
+#solCenterNavParent,
+#moreNavParent,
+#stargazeTab_pane table,
+#interstellarTab_pane table {
+	width: 100% !important;
+	max-width: 100% !important;
+	table-layout: fixed !important;
+	border-collapse: separate !important;
+	border-spacing: 0 4px !important;
+	margin: 0 !important;
+	box-sizing: border-box !important;
+}
+
+.sideTab,
+.side-nav-table tr.sideTab:not(.hidden),
+.side-nav-table tr.inner:not(.hidden),
+.side-nav-table tr.outer:not(.hidden),
+#resourceNavParent tr.sideTab:not(.hidden),
+#researchNavParent tr.sideTab:not(.hidden),
+#solarNavParent tr.sideTab:not(.hidden),
+#solarNavParent tr.inner:not(.hidden),
+#solarNavParent tr.outer:not(.hidden),
+#wonderNavParent tr.sideTab:not(.hidden),
+#solCenterNavParent tr.sideTab:not(.hidden),
+#moreNavParent tr.sideTab:not(.hidden),
+#stargazeTab_nav tr:not(.hidden),
+#interstellarTab_nav tr:not(.hidden) {
+	background: #ffffff !important;
+	cursor: pointer !important;
+	height: 42px !important;
+	min-height: 42px !important;
+	transition: background-color 0.15s ease, transform 0.1s ease;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03) !important;
+}
+
+.sideTab:hover,
+.side-nav-table tr[onclick]:hover,
+#resourceNavParent tr[onclick]:hover,
+#researchNavParent tr[onclick]:hover,
+#solarNavParent tr[onclick]:hover,
+#wonderNavParent tr[onclick]:hover,
+#solCenterNavParent tr[onclick]:hover,
+#moreNavParent tr[onclick]:hover,
+#stargazeTab_nav tr:hover,
+#interstellarTab_nav tr:hover {
+	background: #f8fafc !important;
+	transform: translateX(2px) !important;
+}
+
+.sideTab.info,
+.sideTab.active,
+tr.sideTab.info,
+tr.inner.info,
+tr.outer.info,
+#resourceNavParent tr.info,
+#researchNavParent tr.info,
+#solarNavParent tr.info,
+#wonderNavParent tr.info,
+#solCenterNavParent tr.info,
+#moreNavParent tr.info,
+#stargazeTab_nav tr.info,
+#interstellarTab_nav tr.info {
+	background: #eff6ff !important;
+}
+
+.tab-sidebar-table td,
+.side-nav-table td,
+#resourceNavParent td,
+#researchNavParent td,
+#solarNavParent td,
+#wonderNavParent td,
+#solCenterNavParent td,
+#moreNavParent td,
+#stargazeTab_nav td,
+#interstellarTab_nav td {
+	vertical-align: middle !important;
+	border: none !important;
+	border-top: 1px solid var(--border-color) !important;
+	border-bottom: 1px solid var(--border-color) !important;
+	padding: 4px 6px !important;
+	height: 42px !important;
+	line-height: 1.2 !important;
+	box-sizing: border-box !important;
+}
+
+.tab-sidebar-table td:first-child,
+.side-nav-table td:first-child,
+#resourceNavParent td:first-child,
+#researchNavParent td:first-child,
+#solarNavParent td:first-child,
+#wonderNavParent td:first-child,
+#solCenterNavParent td:first-child,
+#moreNavParent td:first-child,
+#stargazeTab_nav td:first-child,
+#interstellarTab_nav td:first-child {
+	border-left: 1px solid var(--border-color) !important;
+	border-top-left-radius: 9px !important;
+	border-bottom-left-radius: 9px !important;
+	width: 32px !important;
+	min-width: 32px !important;
+	max-width: 32px !important;
+	text-align: center !important;
+	padding: 2px 4px !important;
+}
+
+tr.info td:first-child,
+tr.sideTab.info td:first-child,
+#resourceNavParent tr.info td:first-child,
+#researchNavParent tr.info td:first-child,
+#solarNavParent tr.info td:first-child,
+#wonderNavParent tr.info td:first-child,
+#solCenterNavParent tr.info td:first-child,
+#moreNavParent tr.info td:first-child {
+	border-left: 3px solid #2563eb !important;
+}
+
+.tab-sidebar-table td:nth-child(2),
+.side-nav-table td:nth-child(2),
+#resourceNavParent td:nth-child(2),
+#researchNavParent td:nth-child(2),
+#solarNavParent td:nth-child(2),
+#wonderNavParent td:nth-child(2),
+#solCenterNavParent td:nth-child(2),
+#moreNavParent td:nth-child(2) {
+	font-weight: 700 !important;
+	color: var(--text-primary) !important;
+	font-size: 13px !important;
+	text-align: left !important;
+	overflow: hidden !important;
+	text-overflow: ellipsis !important;
+	white-space: nowrap !important;
+	padding-left: 4px !important;
+}
+
+tr.info td:nth-child(2),
+tr.sideTab.info td:nth-child(2) {
+	color: #1d4ed8 !important;
+}
+
+.tab-sidebar-table td:nth-child(3),
+.side-nav-table td:nth-child(3),
+#resourceNavParent td:nth-child(3),
+#researchNavParent td:nth-child(3),
+#solarNavParent td:nth-child(3),
+#wonderNavParent td:nth-child(3),
+#solCenterNavParent td:nth-child(3),
+#moreNavParent td:nth-child(3) {
+	text-align: center !important;
+	white-space: nowrap !important;
+	padding: 2px 2px !important;
+	font-size: 11px !important;
+}
+
+.tab-sidebar-table td:last-child,
+.side-nav-table td:last-child,
+#resourceNavParent td:last-child,
+#researchNavParent td:last-child,
+#solarNavParent td:last-child,
+#wonderNavParent td:last-child,
+#solCenterNavParent td:last-child,
+#moreNavParent td:last-child,
+#stargazeTab_nav td:last-child,
+#interstellarTab_nav td:last-child {
+	border-right: 1px solid var(--border-color) !important;
+	border-top-right-radius: 9px !important;
+	border-bottom-right-radius: 9px !important;
+	text-align: right !important;
+	padding-right: 8px !important;
+	padding-left: 2px !important;
+	white-space: nowrap !important;
+	font-family: var(--font-mono) !important;
+	font-size: 11.5px !important;
+	font-weight: 600 !important;
+	color: #475569 !important;
+	font-variant-numeric: tabular-nums !important;
+}
+
+.tab-sidebar-table img,
+.side-nav-table img,
+#resourceNavParent img,
+#researchNavParent img,
+#solarNavParent img,
+#wonderNavParent img,
+#solCenterNavParent img,
+#moreNavParent img,
+#stargazeTab_nav img,
+#interstellarTab_nav img {
+	width: 22px !important;
+	height: 22px !important;
+	object-fit: contain !important;
+	border-radius: 5px !important;
+	background: transparent !important;
+	padding: 0 !important;
+	border: none !important;
+}
+
+.side-nav-category-header td,
+.collapseEarth td,
+.collapseInnerPlanet td,
+.collapseOuterPlanet td,
+.collapseInner td,
+.collapseOuter td,
+#wonderFloor1Nav td,
+#wonderFloor2Nav td,
+#wonderFloor3Nav td,
+tr[id$="_collapse"] td {
+	background: #f1f5f9 !important;
+	border: 1px solid var(--border-color) !important;
+	border-radius: 7px !important;
+	padding: 5px 8px !important;
+	font-size: 11px !important;
+	font-weight: 800 !important;
+	text-transform: uppercase !important;
+	letter-spacing: 0.5px !important;
+	color: #475569 !important;
+	cursor: pointer !important;
+	height: 30px !important;
+	min-height: 30px !important;
+	line-height: 1 !important;
+}
+
+/* Section Headings */
+h2.btn-link, h2.default {
+	font-size: 24px !important;
+	font-weight: 800 !important;
+	color: #0f172a !important;
+	text-decoration: none !important;
+	letter-spacing: -0.4px;
+	margin-top: 0 !important;
+	margin-bottom: 12px !important;
+	padding-bottom: 10px;
+	border-bottom: 2px solid #f1f5f9;
+}
+
+h3.btn-link, h3.default {
+	font-size: 16.5px !important;
+	font-weight: 700 !important;
+	color: #0f172a !important;
+	text-decoration: none !important;
+	margin-top: 0 !important;
+	margin-bottom: 8px !important;
+}
+
+/* ==========================================================================
+   Tactile Buttons
+   ========================================================================== */
+
+/* Primary Manual Click Button (e.g. Gain Metal) */
+div[onclick^="gainResource"],
+div.gainButton .btn,
+.gainButton div {
+	background: linear-gradient(180deg, #3b82f6 0%, #1d4ed8 100%) !important;
+	color: #ffffff !important;
+	font-weight: 700 !important;
+	font-size: 15px !important;
+	padding: 12px 30px !important;
+	border-radius: 10px !important;
+	border: none !important;
+	box-shadow: 0 4px 14px var(--brand-glow), inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+	cursor: pointer !important;
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	gap: 6px !important;
+	transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+div[onclick^="gainResource"]:hover,
+div.gainButton .btn:hover {
+	background: linear-gradient(180deg, #2563eb 0%, #1e40af 100%) !important;
+	transform: translateY(-2px);
+	box-shadow: 0 6px 18px rgba(37, 99, 235, 0.4) !important;
+}
+
+div[onclick^="gainResource"]:active,
+div.gainButton .btn:active {
+	transform: translateY(2px) scale(0.97) !important;
+	box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3) !important;
+}
+
+/* Machine Purchase & Storage Upgrade Buttons */
+.btn.btn-default {
+	background: #ffffff !important;
+	border: 1.5px solid var(--brand-primary) !important;
+	color: var(--brand-primary) !important;
+	font-weight: 700 !important;
+	font-size: 13.5px !important;
+	border-radius: 9px !important;
+	padding: 8px 18px !important;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+	transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.btn.btn-default:hover {
+	background: var(--brand-primary) !important;
+	color: #ffffff !important;
+	transform: translateY(-1px);
+	box-shadow: 0 4px 12px var(--brand-glow) !important;
+}
+
+.btn.btn-default:active {
+	transform: translateY(1px) scale(0.98);
+}
+
+/* Danger / Destroy Buttons */
+.btn.destroy,
+button[onclick*="destroy"] {
+	background: #fff5f5 !important;
+	border: 1.5px solid #fecaca !important;
+	color: #dc2626 !important;
+	font-weight: 600 !important;
+	border-radius: 9px !important;
+	padding: 8px 16px !important;
+	margin-left: 8px;
+}
+
+.btn.destroy:hover,
+button[onclick*="destroy"]:hover {
+	background: #fee2e2 !important;
+	border-color: #fca5a5 !important;
+	color: #b91c1c !important;
+}
+
+/* Primary Game Action Buttons */
+.btn-primary {
+	background: var(--brand-primary) !important;
+	border-color: var(--brand-primary) !important;
+	color: #ffffff !important;
+	font-weight: 700 !important;
+	border-radius: 9px !important;
+	box-shadow: 0 2px 6px var(--brand-glow) !important;
+}
+
+.btn-primary:hover {
+	background: var(--brand-hover) !important;
+	transform: translateY(-1px);
+	box-shadow: 0 4px 12px var(--brand-glow) !important;
+}
+
+/* ==========================================================================
+   Progress Bars
+   ========================================================================== */
+
+.progress {
+	height: 10px !important;
+	border-radius: 9999px !important;
+	background-color: #e2e8f0 !important;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.06) !important;
+	margin-top: 10px !important;
+	margin-bottom: 12px !important;
+	overflow: hidden;
+}
+
+.progress-bar {
+	background: linear-gradient(90deg, #3b82f6, #2563eb) !important;
+	border-radius: 9999px !important;
+	box-shadow: none !important;
+	transition: width 0.3s ease !important;
+}
+
+/* ==========================================================================
+   Inputs & Dropdowns
+   ========================================================================== */
+
+select, input[type="text"], input[type="number"] {
+	background: #ffffff !important;
+	border: 1.5px solid var(--border-color) !important;
+	border-radius: 8px !important;
+	padding: 8px 12px !important;
+	color: var(--text-primary) !important;
+	font-family: var(--font-sans) !important;
+	font-size: 14px !important;
+	transition: border-color 0.15s ease !important;
+}
+
+select:focus, input[type="text"]:focus, input[type="number"]:focus {
+	outline: none !important;
+	border-color: var(--brand-primary) !important;
+	box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+}
+
+/* ==========================================================================
+   Custom Minimalist Scrollbars
+   ========================================================================== */
+
+::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+
+::-webkit-scrollbar-track {
+	background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #cbd5e1;
+	border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #94a3b8;
+}
+
+/* ==========================================================================
+   Mobile Play, Orientation & Alignment Responsive Styles
+   ========================================================================== */
+
+/* Tablet & Mobile Header/Nav (< 992px) */
+@media (max-width: 991px) {
+	#game {
+		width: 98% !important;
+		padding: 10px 6px !important;
+	}
+
+	.navbar-header {
+		display: flex !important;
+		align-items: center !important;
+		justify-content: space-between !important;
+		width: 100% !important;
+		height: auto !important;
+		flex-wrap: wrap !important;
+		gap: 6px;
+	}
+
+	.navbar-brand.page-title {
+		font-size: 16px !important;
+		padding: 8px 6px !important;
+	}
+
+	/* Top Navigation Tabs - Clean Mobile Ribbon */
+	ul.nav-tabs {
+		display: flex !important;
+		flex-wrap: nowrap !important;
+		overflow-x: auto !important;
+		-webkit-overflow-scrolling: touch !important;
+		scrollbar-width: none !important;
+		border-bottom: 2px solid var(--border-color) !important;
+		margin-bottom: 14px !important;
+		padding-bottom: 2px !important;
+	}
+
+	ul.nav-tabs::-webkit-scrollbar {
+		display: none !important;
+	}
+
+	ul.nav-tabs > li {
+		flex: 0 0 auto !important;
+		float: none !important;
+	}
+
+	ul.nav-tabs > li > a {
+		padding: 10px 14px !important;
+		font-size: 13px !important;
+		white-space: nowrap !important;
+	}
+
+	/* Tablet landscape retains side-by-side with 220px sidebar */
+	.tab-with-sidebar,
+	#tabContent > .tab-pane.active {
+		grid-template-columns: 220px minmax(0, 1fr) !important;
+		gap: 14px !important;
+	}
+
+	.tab-sidebar,
+	.side-nav-container,
+	#resources > .container.col-xs-1,
+	#tabContent > .tab-pane > .side-nav-container,
+	#tabContent > .tab-pane > .container.col-xs-1 {
+		max-width: 220px !important;
+	}
+
+	.tab-detail-panel > .tab-pane > .container,
+	.side-tab-content-parent > .tab-pane > .container,
+	#resourceTabParent > .tab-pane > .container,
+	#researchTabParent > .tab-pane > .container,
+	#solarTabParent > .tab-pane > .container,
+	#wonderTabParent > .tab-pane > .container,
+	#solCenterTabParent > .tab-pane > .container,
+	#moreTabParent > .tab-pane > .container {
+		padding: 16px 18px !important;
+		border-radius: 14px !important;
+	}
+}
+
+/* Mobile Portrait Only (< 768px): Stacks Vertically When Horizontal Space is Limited */
+@media (max-width: 767px) {
+	.tab-with-sidebar,
+	#tabContent > .tab-pane.active,
+	#resources.active,
+	#research.active,
+	#solarSystem.active,
+	#wonder.active,
+	#solCenterPage.active,
+	#more.active,
+	#stargazeTab_pane.active,
+	#interstellarTab_pane.active {
+		display: flex !important;
+		flex-direction: column !important;
+		gap: 12px !important;
+	}
+
+	.tab-sidebar,
+	.side-nav-container,
+	#resources > .container.col-xs-1,
+	#tabContent > .tab-pane > .side-nav-container,
+	#tabContent > .tab-pane > .container.col-xs-1,
+	#tabContent > .tab-pane > .container:first-child,
+	#stargazeTab_pane > .container:first-child,
+	#interstellarTab_pane > .container:first-child {
+		max-width: 100% !important;
+		width: 100% !important;
+	}
+
+	.tab-detail-panel,
+	.side-tab-content-parent,
+	#resourceTabParent,
+	#researchTabParent,
+	#solarTabParent,
+	#wonderTabParent,
+	#solCenterTabParent,
+	#moreTabParent,
+	#stargazeTab_content,
+	#interstellarTab_content {
+		width: 100% !important;
+	}
+
+	.tab-detail-panel > .tab-pane > .container,
+	.side-tab-content-parent > .tab-pane > .container,
+	#resourceTabParent > .tab-pane > .container,
+	#researchTabParent > .tab-pane > .container,
+	#solarTabParent > .tab-pane > .container,
+	#wonderTabParent > .tab-pane > .container,
+	#solCenterTabParent > .tab-pane > .container,
+	#moreTabParent > .tab-pane > .container {
+		padding: 14px 14px !important;
+		border-radius: 12px !important;
+	}
+
+	.btn, div[onclick^="gainResource"], div.gainButton .btn {
+		min-height: 42px !important;
+		font-size: 13.5px !important;
+	}
+}
+

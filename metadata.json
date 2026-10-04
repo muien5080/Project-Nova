@@ -1,0 +1,6 @@
+{
+  "name": "Project Nova",
+  "description": "An incremental space exploration and resource management simulation game with persistent progress and interplanetary expansion.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
